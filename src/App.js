@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   
   return (
     <div className="App">
+      <Counter></Counter>
       {
         friends.map(friend => <Friend name={friend.name} age={friend.age}></Friend>)
       }
@@ -18,6 +20,7 @@ function App() {
       <Friend name='sakib khan'></Friend>
       <Friend></Friend>
       <Friend></Friend> */}
+      
     </div>
   );
 }
@@ -30,6 +33,20 @@ function Friend(props){
     </div>
   )
 
+}
+
+function Counter (){
+  const [count, setCount]= useState(0);
+  const increaseCount = () => setCount(count + 1);
+  const decreaseCount = () => setCount(count - 1);
+
+  return (
+    <div>
+      <h1>count:{count}</h1>
+      <button onClick={increaseCount}>Increase</button>
+      <button onClick={decreaseCount}>Decrease</button>
+    </div>
+  )
 }
 
 export default App;
